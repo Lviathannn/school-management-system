@@ -1,70 +1,20 @@
-import { GenderStat, Revenue } from "@/features/Dashboard";
+import { Header } from "@/components/Header";
+import { dashboardStat, studentsPerformance } from "@/constant";
 import {
-  BackpackIcon,
-  DollarSign,
-  GraduationCapIcon,
+  BestStudent,
+  DashboardCard,
+  GenderStat,
+  Revenue,
+  SavingChart,
+} from "@/features/Dashboard";
+import { CalendarDemo } from "@/features/Dashboard/components/Calendar";
+import { Schedule } from "@/features/Dashboard/components/Schedule";
+import {
   HandCoinsIcon,
-  LandmarkIcon,
-  StarIcon,
+  TrendingUpIcon,
   TrophyIcon,
   UserRound,
 } from "lucide-react";
-import Image from "next/image";
-
-const dashboardStat = [
-  {
-    title: "Murid",
-    value: 100,
-  },
-
-  {
-    title: "Guru",
-    value: 5,
-  },
-  {
-    title: "Tabungan",
-    value: 20000000,
-  },
-];
-
-const bgColors = {
-  Murid: "#5D5FEF",
-  Guru: "#1D4ED8",
-  Tabungan: "#FA5A7D",
-};
-
-const icons = {
-  Murid: <BackpackIcon size={24} strokeWidth={1.5} color="#ffffff" />,
-  Guru: <GraduationCapIcon size={24} strokeWidth={1.5} color="#ffffff" />,
-  Tabungan: <HandCoinsIcon size={24} strokeWidth={1.5} color="#ffffff" />,
-};
-
-const studentsPerformance = [
-  {
-    name: "Ade",
-    class: "B",
-    gender: "Laki-laki",
-    star: 8,
-  },
-  {
-    name: "Budi",
-    class: "A",
-    gender: "Laki-laki",
-    star: 9,
-  },
-  {
-    name: "Caca",
-    class: "A",
-    gender: "Perempuan",
-    star: 8,
-  },
-  {
-    name: "Fina",
-    class: "A",
-    gender: "Perempuan",
-    star: 7,
-  },
-];
 
 export default function Home() {
   return (
@@ -72,121 +22,82 @@ export default function Home() {
       <section className="col-span-3 flex flex-col gap-5 row-span-2">
         <div className="grid grid-cols-3 gap-5 w-full">
           {dashboardStat.map((stat) => (
-            <div
-              className="bg-white h-48 p-5 rounded-2xl flex flex-col justify-between shadow_card"
+            <DashboardCard
               key={stat.title}
-            >
-              <div className="flex items-center gap-5">
-                <div
-                  className="p-2 rounded-lg"
-                  style={{
-                    // @ts-ignore
-                    backgroundColor: bgColors[stat.title],
-                  }}
-                >
-                  {/* @ts-ignore */}
-                  {icons[stat.title]}
-                </div>
-
-                <h3 className="text-lg font-semibold">Total {stat.title}</h3>
-              </div>
-
-              <div className="">
-                <h2 className="text-4xl font-bold text-slate-800">
-                  {stat.value}
-                </h2>
-
-                <p className="text-lg font-medium text-slate-500">
-                  Total {stat.title}
-                </p>
-              </div>
-            </div>
+              title={stat.title}
+              value={stat.value}
+            />
           ))}
         </div>
 
         <div className="w-full bg-white p-5 shadow_card rounded-2xl space-y-10 h-full flex flex-col justify-between">
-          <div className="flex items-center gap-5">
-            <div className="p-2 rounded-lg bg-sky-500">
-              <LandmarkIcon size={24} strokeWidth={1.5} color="#ffffff" />
-            </div>
+          <Header
+            title="Pendapatan & Pengeluaran"
+            subtitle="Dalam 1 Tahun"
+            icon={
+              <TrendingUpIcon size={24} strokeWidth={1.5} color="#ffffff" />
+            }
+            color="#0ea5e9 "
+          />
 
-            <h2 className="text-lg font-semibold">Pendapatan & Pengeluran</h2>
+          <div className="max-h-[400px]">
+            <Revenue />
           </div>
-
-          <Revenue />
         </div>
       </section>
 
-      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5">
-        <div className="flex items-center gap-5">
-          <div className="p-2 rounded-lg bg-emerald-500">
-            <UserRound size={24} strokeWidth={1.5} color="#ffffff" />
-          </div>
+      <section className="h-full w-full bg-white rounded-2xl p-5 shadow_card row-span-2 space-y-5">
+        <CalendarDemo />
 
-          <h2 className="text-lg font-semibold">Perbandingan Murid</h2>
+        <Schedule />
+      </section>
+
+      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5 row-start-3 col-start-1">
+        <Header
+          title="Murid Berprestasi"
+          subtitle="Dalam 1 Semester"
+          icon={<TrophyIcon size={24} strokeWidth={1.5} color="#ffffff" />}
+          color="#facc15 "
+        />
+
+        <div className="flex flex-col gap-2">
+          {studentsPerformance.map((student) => (
+            <BestStudent
+              name={student.name}
+              studentClass={student.class}
+              gender={student.gender}
+              star={student.star}
+              key={student.name}
+            />
+          ))}
         </div>
+      </section>
+
+      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5 col-start-2 row-start-3">
+        <Header
+          title="Perbandingan Murid"
+          subtitle="Dalam 1 Semester"
+          icon={<UserRound size={24} strokeWidth={1.5} color="#ffffff" />}
+          color="#10b981 "
+        />
 
         <div className="flex justify-center items-center h-full">
           <GenderStat />
         </div>
       </section>
 
-      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5">
-        <div className="flex items-center gap-5">
-          <div className="p-2 rounded-lg bg-yellow-400">
-            <TrophyIcon size={24} strokeWidth={1.5} color="#ffffff" />
+      <section className="col-span-2 flex flex-col gap-5">
+        <div className="w-full bg-white p-5 shadow_card rounded-2xl space-y-10 h-full flex flex-col justify-between">
+          <Header
+            title="Tabungan"
+            subtitle="Dalam 1 Tahun"
+            icon={<HandCoinsIcon size={24} strokeWidth={1.5} color="#ffffff" />}
+            color="#f97316"
+          />
+
+          <div className="max-h-[300px]">
+            <SavingChart />
           </div>
-
-          <h2 className="text-lg font-semibold">Murid Berprestasi</h2>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          {studentsPerformance.map((student) => (
-            <div
-              className="rounded-lg p-[10px] flex bg-gray-50 justify-between items-center"
-              key={student.name}
-            >
-              <div className="flex gap-2">
-                <div
-                  className="flex justify-center items-end w-10 h-10 rounded-full overflow-hidden"
-                  style={{
-                    backgroundColor:
-                      student.gender === "Perempuan" ? "#FFC0CB" : "#87CEEB",
-                  }}
-                >
-                  <Image
-                    src={
-                      student.gender === "Perempuan" ? "/girl.png" : "/boy.png"
-                    }
-                    alt="student picture"
-                    width={32}
-                    height={32}
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <span className="text-lg font-medium text-slate-700 leading-6">
-                    {student.name}
-                  </span>
-
-                  <span className="text-xs text-slate-400">
-                    Kelas {student.class}
-                  </span>
-                </div>
-              </div>
-
-              <div className="w-10 flex justify-evenly items-center">
-                <span className="text-sm">{student.star}</span>
-
-                <StarIcon
-                  fill="#FACC15"
-                  size={16}
-                  strokeWidth={1.5}
-                  color="#FACC15"
-                />
-              </div>
-            </div>
-          ))}
         </div>
       </section>
     </main>

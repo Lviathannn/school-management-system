@@ -13,6 +13,7 @@ import {
   LandmarkIcon,
   LayoutGridIcon,
   School,
+  TrendingUpIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -43,13 +44,13 @@ const sidebarItems = [
     id: 4,
     title: "Tabungan",
     href: "/savings",
-    Icon: HandCoinsIcon,
+    Icon: LandmarkIcon,
   },
   {
     id: 5,
     title: "Pendapatan & Pengeluaran",
     href: "/Revenue",
-    Icon: LandmarkIcon,
+    Icon: TrendingUpIcon,
   },
 ];
 
@@ -57,7 +58,7 @@ export function Sidebar({}: Props) {
   const pathname = usePathname();
 
   return (
-    <aside className="p-2 h-full fixed left-0 top-0 bottom-0 flex flex-col gap-5 bg-white pt-10">
+    <aside className="p-2 h-full fixed left-0 top-0 bottom-0 flex flex-col gap-5 bg-white z-50">
       <div className="p-2 bg-blue-600 rounded-lg">
         <School color="#ffffff" strokeWidth={1.5} size={24} />
       </div>

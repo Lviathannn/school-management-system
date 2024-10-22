@@ -19,6 +19,12 @@ const chartData = [
   { month: "April", income: 73000, outcome: 190000 },
   { month: "Mei", income: 209000, outcome: 130000 },
   { month: "Juni", income: 214000, outcome: 140000 },
+  { month: "Juli", income: 240000, outcome: 150000 },
+  { month: "Agustus", income: 260000, outcome: 160000 },
+  { month: "September", income: 280000, outcome: 170000 },
+  { month: "Oktober", income: 300000, outcome: 180000 },
+  { month: "November", income: 320000, outcome: 190000 },
+  { month: "Desember", income: 340000, outcome: 200000 },
 ];
 
 const chartConfig = {
@@ -61,7 +67,7 @@ export function Revenue() {
                       />
 
                       <span className="capitalize">
-                        {name === "income" ? "Pendapatan" : "Pengeluaran"}
+                        {name === "income" ? "Pendapatan :" : "Pengeluaran :"}
                       </span>
                     </div>
 

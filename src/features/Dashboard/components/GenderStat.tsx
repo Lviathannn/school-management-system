@@ -54,7 +54,9 @@ export function GenderStat() {
                         style={{ backgroundColor: item.payload.fill }}
                       />
 
-                      <span className="capitalize">{item.payload.gender}</span>
+                      <span className="capitalize">
+                        {item.payload.gender} :{" "}
+                      </span>
 
                       <span className="capitalize font-medium">
                         {item.payload.total} Murid
