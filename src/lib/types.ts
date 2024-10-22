@@ -1,4 +1,4 @@
-import { student } from "@/db/schema/student";
+import { student } from "@/db/schema";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
