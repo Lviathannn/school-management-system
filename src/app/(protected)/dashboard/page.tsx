@@ -18,7 +18,7 @@ import {
 
 export default function Home() {
   return (
-    <main className="p-5 pl-[76px] py-10 min-h-screen grid grid-cols-4 gap-5 pt-[85px] grid-rows-2">
+    <main className="p-10 pl-[86px] py-10 min-h-screen grid grid-cols-4 gap-5 pt-[85px] grid-rows-2">
       <section className="col-span-3 flex flex-col gap-5 row-span-2">
         <div className="grid grid-cols-3 gap-5 w-full">
           {dashboardStat.map((stat) => (

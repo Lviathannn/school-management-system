@@ -22,7 +22,7 @@ export function Header({ icon, title, color, subtitle, extra }: Props) {
 
         <div className="">
           <h2 className="text-lg font-semibold">{title}</h2>
-          {subtitle && <p className="text-sm text-gray-500">{subtitle}</p>}
+          {subtitle && <p className="text-sm text-slate-500">{subtitle}</p>}
         </div>
       </div>
 
