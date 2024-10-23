@@ -10,7 +10,7 @@ type ThemeStore = {
 type SidebarStore = {
   isOpen: boolean;
   toogleOpen: () => void;
-
+  setClose: () => void;
 };
 
 export const useThemeStore = create<ThemeStore>()(
@@ -29,5 +29,6 @@ export const useSidebarStore = create<SidebarStore>()(
     (set) => ({
       isOpen: false,
       toogleOpen: () => set((state) => ({ isOpen: !state.isOpen })),
+      setClose: () => set({ isOpen: false }),
     }),
 )

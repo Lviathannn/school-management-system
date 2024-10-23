@@ -16,16 +16,17 @@ import {
   LayoutGridIcon,
   MoonIcon,
   School,
+  StarIcon,
   TrendingUpIcon,
   UserIcon,
   X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent } from "../ui/sheet";
 import { cn } from "@/lib/utils";
-import { useSidebarStore, useThemeStore } from "@/store/theme-store";
-import { Button } from "../ui/button";
+import { useSidebarStore } from "@/store/theme-store";
+import { Button } from "@/components/ui/button";
 
 const sidebarItems = [
   {
@@ -38,36 +39,42 @@ const sidebarItems = [
   {
     id: 2,
     title: "Murid",
-    href: "/students",
+    href: "/students-management",
     Icon: BackpackIcon,
   },
   {
     id: 3,
     title: "Guru",
-    href: "/teachers",
+    href: "/teachers-management",
     Icon: GraduationCapIcon,
   },
   {
-    id: 4,
-    title: "Tabungan",
-    href: "/savings",
-    Icon: LandmarkIcon,
+    id: 3,
+    title: "Nilai",
+    href: "/grade-management",
+    Icon: StarIcon,
   },
   {
     id: 5,
+    title: "Tabungan",
+    href: "/savings-management",
+    Icon: LandmarkIcon,
+  },
+  {
+    id: 6,
     title: "Keuangan",
-    href: "/Revenue",
+    href: "/Revenue-management",
     Icon: TrendingUpIcon,
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Jadwal",
     href: "/schedule-management",
     Icon: CalendarIcon,
   },
   {
-    id: 7,
+    id: 8,
     title: "User",
     href: "/user-management",
     Icon: UserIcon,

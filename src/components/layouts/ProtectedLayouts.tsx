@@ -7,7 +7,7 @@ type Props = {
 
 export function ProtectedLayouts({ children }: Props) {
   return (
-    <main className="bg-[#FAFBFC]">
+    <main>
       <Navbar />
       <Sidebar />
       {children}
