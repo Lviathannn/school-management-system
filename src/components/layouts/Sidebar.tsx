@@ -8,18 +8,17 @@ import {
 
 import {
   BackpackIcon,
+  CalendarIcon,
   GraduationCapIcon,
-  HandCoinsIcon,
   LandmarkIcon,
   LayoutGridIcon,
   MoonIcon,
   School,
   TrendingUpIcon,
+  UserIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type Props = {};
 
 const sidebarItems = [
   {
@@ -53,9 +52,22 @@ const sidebarItems = [
     href: "/Revenue",
     Icon: TrendingUpIcon,
   },
+
+  {
+    id: 6,
+    title: "Jadwal",
+    href: "/schedule-management",
+    Icon: CalendarIcon,
+  },
+  {
+    id: 7,
+    title: "User",
+    href: "/user-management",
+    Icon: UserIcon,
+  },
 ];
 
-export function Sidebar({}: Props) {
+export function Sidebar() {
   const pathname = usePathname();
 
   return (

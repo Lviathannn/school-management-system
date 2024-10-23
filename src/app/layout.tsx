@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased max-w-[100vw] overflow-x-hidden`}
       >
-        <ProtectedLayouts>{children}</ProtectedLayouts>
+        {children}{" "}
       </body>
     </html>
   );

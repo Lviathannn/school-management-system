@@ -7,7 +7,6 @@ import { id } from "date-fns/locale";
 import {
   BackpackIcon,
   CalendarIcon,
-  ChevronRight,
   ChevronRightIcon,
   SunIcon,
 } from "lucide-react";

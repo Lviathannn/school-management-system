@@ -18,9 +18,9 @@ import {
 
 export default function Home() {
   return (
-    <main className="p-10 pl-[86px] py-10 min-h-screen grid grid-cols-4 gap-5 pt-[85px] grid-rows-2">
-      <section className="col-span-3 flex flex-col gap-5 row-span-2">
-        <div className="grid grid-cols-3 gap-5 w-full">
+    <main className="grid min-h-screen grid-cols-4 grid-rows-2 gap-5 p-10 pl-[86px] pt-[85px]">
+      <section className="col-span-3 row-span-2 flex flex-col gap-5">
+        <div className="grid w-full grid-cols-3 gap-5">
           {dashboardStat.map((stat) => (
             <DashboardCard
               key={stat.title}
@@ -30,7 +30,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="w-full bg-white p-5 shadow_card rounded-2xl space-y-10 h-full flex flex-col justify-between">
+        <div className="shadow_card flex h-full w-full flex-col justify-between space-y-10 rounded-2xl bg-white p-5">
           <Header
             title="Pendapatan & Pengeluaran"
             subtitle="Dalam 1 Tahun"
@@ -46,13 +46,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-full w-full bg-white rounded-2xl p-5 shadow_card row-span-2 space-y-5">
+      <section className="shadow_card row-span-2 h-full w-full space-y-5 rounded-2xl bg-white p-5">
         <CalendarDemo />
 
         <Schedule />
       </section>
 
-      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5 row-start-3 col-start-1">
+      <section className="col-start-1 row-start-3 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5">
         <Header
           title="Murid Berprestasi"
           subtitle="Dalam 1 Semester"
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-full w-full bg-white rounded-2xl p-5 flex flex-col gap-5 col-start-2 row-start-3">
+      <section className="col-start-2 row-start-3 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5">
         <Header
           title="Perbandingan Murid"
           subtitle="Dalam 1 Semester"
@@ -81,13 +81,13 @@ export default function Home() {
           color="#10b981 "
         />
 
-        <div className="flex justify-center items-center h-full">
+        <div className="flex h-full items-center justify-center">
           <GenderStat />
         </div>
       </section>
 
       <section className="col-span-2 flex flex-col gap-5">
-        <div className="w-full bg-white p-5 shadow_card rounded-2xl space-y-10 h-full flex flex-col justify-between">
+        <div className="shadow_card flex h-full w-full flex-col justify-between space-y-10 rounded-2xl bg-white p-5">
           <Header
             title="Tabungan"
             subtitle="Dalam 1 Tahun"
