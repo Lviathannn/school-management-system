@@ -32,7 +32,10 @@ export function GenderStat() {
   const totalStudents = chartData.reduce((acc, { total }) => acc + total, 0);
 
   return (
-    <ChartContainer config={chartConfig} className="mx-auto h-full bg-emerald">
+    <ChartContainer
+      config={chartConfig}
+      className="bg-emerald mx-auto h-full min-h-[200px] w-full"
+    >
       <RadialBarChart
         data={chartData}
         startAngle={0}
@@ -45,12 +48,11 @@ export function GenderStat() {
             <ChartTooltipContent
               indicator="dot"
               formatter={(value, name, item) => {
-                console.log(item);
                 return (
                   <div className="flex gap-3">
-                    <div className="flex gap-2 items-center">
+                    <div className="flex items-center gap-2">
                       <span
-                        className="inline-block w-2 h-2 rounded-[2px]"
+                        className="inline-block h-2 w-2 rounded-[2px]"
                         style={{ backgroundColor: item.payload.fill }}
                       />
 
@@ -58,7 +60,7 @@ export function GenderStat() {
                         {item.payload.gender} :{" "}
                       </span>
 
-                      <span className="capitalize font-medium">
+                      <span className="font-medium capitalize">
                         {item.payload.total} Murid
                       </span>
                     </div>

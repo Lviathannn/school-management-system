@@ -15,7 +15,7 @@ type Props = {};
 
 export function Schedule({}: Props) {
   return (
-    <div>
+    <div className="w-full">
       <Header
         title="Jadwal"
         subtitle="Dalam 1 Bulan"
@@ -28,16 +28,16 @@ export function Schedule({}: Props) {
         }
       />
 
-      <div className="mt-5 flex gap-2 flex-col">
+      <div className="mt-5 flex flex-col gap-2">
         {schedule.map((item, index) => (
           <div
-            className="p-2 bg-gray-50 flex rounded-lg  justify-between items-center"
+            className="flex items-center justify-between rounded-lg bg-gray-50 p-2"
             key={index}
           >
-            <div className="flex gap-3 items-center">
+            <div className="flex items-center gap-3">
               <div
                 className={cn(
-                  `${item.type === "kegiatan" ? "bg-emerald-600" : "bg-red-500"} rounded-lg w-8 h-8 flex justify-center items-center aspect-square`,
+                  `${item.type === "kegiatan" ? "bg-emerald-600" : "bg-red-500"} flex aspect-square h-8 w-8 items-center justify-center rounded-lg`,
                 )}
               >
                 {item.type === "libur" ? (
@@ -48,7 +48,7 @@ export function Schedule({}: Props) {
               </div>
 
               <div className="flex flex-col">
-                <p className="text-sm font-semibold truncate">
+                <p className="truncate text-sm font-semibold">
                   {item.title.length < 20
                     ? item.title
                     : item.title.substring(0, 20) + "..."}
@@ -61,7 +61,7 @@ export function Schedule({}: Props) {
             </div>
 
             <div
-              className={`${item.type === "libur" ? "bg-rose-100 text-rose-600" : "bg-emerald-100 text-emerald-700"} px-2 py-1 text-xs rounded font-medium   text-nowrap`}
+              className={`${item.type === "libur" ? "bg-rose-100 text-rose-600" : "bg-emerald-100 text-emerald-700"} text-nowrap rounded px-2 py-1 text-xs font-medium`}
             >
               {item.type}
             </div>

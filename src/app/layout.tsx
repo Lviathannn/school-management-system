@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} antialiased max-w-[100vw] overflow-x-hidden`}
+        className={`${poppins.className} max-w-[100vw] overflow-x-hidden antialiased`}
       >
         {children}{" "}
       </body>

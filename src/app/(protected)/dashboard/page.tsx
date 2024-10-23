@@ -18,9 +18,9 @@ import {
 
 export default function Home() {
   return (
-    <main className="grid min-h-screen grid-cols-4 grid-rows-2 gap-5 p-10 pl-[86px] pt-[85px]">
-      <section className="col-span-3 row-span-2 flex flex-col gap-5">
-        <div className="grid w-full grid-cols-3 gap-5">
+    <main className="grid min-h-screen grid-cols-4 grid-rows-2 gap-5 px-4 pb-10 pt-[88px] md:px-10 md:pl-[86px]">
+      <section className="col-span-4 row-span-2 flex flex-col gap-5 2xl:col-span-3">
+        <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {dashboardStat.map((stat) => (
             <DashboardCard
               key={stat.title}
@@ -46,13 +46,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shadow_card row-span-2 h-full w-full space-y-5 rounded-2xl bg-white p-5">
+      <section className="shadow_card col-span-4 row-span-2 flex h-full w-full flex-col items-center justify-center gap-10 rounded-2xl bg-white p-5 md:flex-row 2xl:col-span-1 2xl:flex-col 2xl:justify-start">
         <CalendarDemo />
 
         <Schedule />
       </section>
 
-      <section className="col-start-1 row-start-3 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5">
+      <section className="shadow_card col-span-4 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5 md:col-span-2 2xl:col-span-1 2xl:col-start-1 2xl:row-start-3">
         <Header
           title="Murid Berprestasi"
           subtitle="Dalam 1 Semester"
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="col-start-2 row-start-3 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5">
+      <section className="shadow_card col-span-4 flex h-full w-full flex-col gap-5 rounded-2xl bg-white p-5 md:col-span-2 2xl:col-span-1 2xl:col-start-2 2xl:row-start-3">
         <Header
           title="Perbandingan Murid"
           subtitle="Dalam 1 Semester"
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="col-span-2 flex flex-col gap-5">
+      <section className="col-span-4 flex flex-col gap-5 2xl:col-span-2">
         <div className="shadow_card flex h-full w-full flex-col justify-between space-y-10 rounded-2xl bg-white p-5">
           <Header
             title="Tabungan"

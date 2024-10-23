@@ -5,8 +5,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import {
+  AlignLeft,
   BackpackIcon,
   CalendarIcon,
   GraduationCapIcon,
@@ -16,9 +18,14 @@ import {
   School,
   TrendingUpIcon,
   UserIcon,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { cn } from "@/lib/utils";
+import { useSidebarStore, useThemeStore } from "@/store/theme-store";
+import { Button } from "../ui/button";
 
 const sidebarItems = [
   {
@@ -48,7 +55,7 @@ const sidebarItems = [
   },
   {
     id: 5,
-    title: "Pendapatan & Pengeluaran",
+    title: "Keuangan",
     href: "/Revenue",
     Icon: TrendingUpIcon,
   },
@@ -69,11 +76,63 @@ const sidebarItems = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const isMobile = useIsMobile();
+  const isOpen = useSidebarStore((state) => state.isOpen);
+  const toogleSidebar = useSidebarStore((state) => state.toogleOpen);
+
+  if (isMobile) {
+    return (
+      <Sheet open={isOpen}>
+        <SheetContent className="lg:hidden" side="left">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-2 top-3"
+            onClick={() => toogleSidebar()}
+          >
+            <X size={24} />
+          </Button>
+          <ul className="flex flex-col gap-7">
+            {sidebarItems.map((link) => {
+              return (
+                <li key={link.id}>
+                  <Link
+                    href={link.href}
+                    className={`flex items-center gap-5 text-lg ${
+                      pathname === link.href
+                        ? "font-medium text-primary dark:text-primary"
+                        : "text-slate-700 dark:text-white"
+                    }`}
+                  >
+                    <div
+                      className={cn(
+                        `flex h-11 w-11 items-center justify-center rounded-lg dark:border-white dark:text-white ${
+                          pathname === link.href
+                            ? "bg-gray-100 font-semibold text-primary dark:text-primary"
+                            : ""
+                        } `,
+                      )}
+                    >
+                      <link.Icon size={18} className={cn("")} />
+                    </div>
+
+                    {link.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* <ThemeButton /> */}
+        </SheetContent>
+      </Sheet>
+    );
+  }
 
   return (
-    <aside className="p-2 py-4 h-full fixed left-0 top-0 bottom-0 flex flex-col justify-between bg-white z-50">
+    <aside className="fixed bottom-0 left-0 top-0 z-50 hidden h-full flex-col justify-between bg-white p-2 py-4 md:flex">
       <div className="flex flex-col gap-5">
-        <div className="p-2 bg-blue-600 rounded-lg">
+        <div className="rounded-lg bg-blue-600 p-2">
           <School color="#ffffff" strokeWidth={1.5} size={24} />
         </div>
 
@@ -82,7 +141,7 @@ export function Sidebar() {
             {sidebarItems.map((item) => (
               <Tooltip key={item.id}>
                 <TooltipTrigger
-                  className={`p-2 hover:bg-gray-100 hover:text-blue-500 rounded-lg ${pathname === item.href ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
+                  className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname === item.href ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
                 >
                   <Link key={item.id} href={item.href}>
                     <item.Icon
@@ -102,7 +161,7 @@ export function Sidebar() {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger
-            className={`p-2 hover:bg-gray-100 hover:text-blue-500 rounded-lg`}
+            className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500`}
           >
             <MoonIcon
               size={24}

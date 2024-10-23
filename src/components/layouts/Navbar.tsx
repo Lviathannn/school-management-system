@@ -1,15 +1,31 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "../ui/button";
+import { AlignLeft } from "lucide-react";
+import { useSidebarStore } from "@/store/theme-store";
 
 export function Navbar() {
-  return (
-    <header className="fixed top-0 left-0 right-0 py-3 pl-[76px] flex justify-between pr-10 bg-white items-center z-50">
-      <div className="">
-        <h1 className="text-lg font-semibold text-[#151D48]">
-          Halo ,Anwar Sanusi !
-        </h1>
+  const toogleSidebar = useSidebarStore((state) => state.toogleOpen);
 
-        <p className="text-xs text-slate-400">Super Admin</p>
+  return (
+    <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between bg-white px-4 py-3 lg:pl-[76px] lg:pr-10">
+      <div className="flex items-center gap-3">
+        <Button
+          size="icon"
+          variant="outline"
+          className="lg:hidden"
+          onClick={toogleSidebar}
+        >
+          <AlignLeft size={24} />
+        </Button>
+
+        <div className="">
+          <h1 className="text-lg font-semibold text-[#151D48]">
+            Halo ,Anwar Sanusi !
+          </h1>
+
+          <p className="text-xs text-slate-400">Super Admin</p>
+        </div>
       </div>
 
       <Avatar>
