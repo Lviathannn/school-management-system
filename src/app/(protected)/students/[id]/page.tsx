@@ -18,7 +18,11 @@ type Props = {};
 export default function StudentDetailPage({}: Props) {
   return (
     <main className="min-h-screen bg-gray-50 px-4 pb-10 pt-[88px] md:px-10 md:pl-[86px]">
-      <Breadcrumb />
+      <Breadcrumb
+        currentPath="Athika Tsary Adzkiya"
+        parentPath="Siswa"
+        parentHref="/students"
+      />
 
       <section className="shadow_card mt-5 flex w-full flex-col gap-5 rounded-3xl bg-white p-10">
         <div className="flex w-full justify-between">
