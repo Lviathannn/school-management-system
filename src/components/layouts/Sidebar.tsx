@@ -100,13 +100,13 @@ export function Sidebar() {
             <X size={24} />
           </Button>
           <ul className="flex flex-col gap-7">
-            {sidebarItems.map((link) => {
+            {sidebarItems.map((item) => {
               return (
-                <li key={link.id}>
+                <li key={item.id}>
                   <Link
-                    href={link.href}
+                    href={item.href}
                     className={`flex items-center gap-5 text-lg ${
-                      pathname === link.href
+                      pathname.includes(item.href)
                         ? "font-medium text-primary dark:text-primary"
                         : "text-slate-700 dark:text-white"
                     }`}
@@ -114,16 +114,16 @@ export function Sidebar() {
                     <div
                       className={cn(
                         `flex h-11 w-11 items-center justify-center rounded-lg dark:border-white dark:text-white ${
-                          pathname === link.href
+                          pathname.includes(item.href)
                             ? "bg-gray-100 font-semibold text-primary dark:text-primary"
                             : ""
                         } `,
                       )}
                     >
-                      <link.Icon size={18} className={cn("")} />
+                      <item.Icon size={18} className={cn("")} />
                     </div>
 
-                    {link.title}
+                    {item.title}
                   </Link>
                 </li>
               );
@@ -148,12 +148,12 @@ export function Sidebar() {
             {sidebarItems.map((item) => (
               <Tooltip key={item.id}>
                 <TooltipTrigger
-                  className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname === item.href ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
+                  className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname.includes(item.href) ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
                 >
                   <Link key={item.id} href={item.href}>
                     <item.Icon
                       size={24}
-                      strokeWidth={pathname === item.href ? 1.5 : 1.35}
+                      strokeWidth={pathname.includes(item.href) ? 1.5 : 1.35}
                     />
                   </Link>
                 </TooltipTrigger>

@@ -24,7 +24,7 @@ export default function StudentDetailPage({}: Props) {
         parentHref="/students"
       />
 
-      <section className="shadow_card mt-5 flex w-full flex-col gap-5 rounded-3xl bg-white p-10">
+      <section className="shadow_card mt-5 flex w-full flex-col gap-5 rounded-3xl bg-white p-5 md:p-10">
         <div className="flex w-full justify-between">
           <div className="flex items-center gap-2">
             <span className="inline-block h-8 w-2 rounded-full bg-emerald-300" />
@@ -36,11 +36,11 @@ export default function StudentDetailPage({}: Props) {
 
           <Button className="rounded-lg bg-gradient-to-br from-primary to-blue-400">
             <Edit size={16} />
-            Edit Siswa
+            <span className="hidden md:inline">Edit Data</span>
           </Button>
         </div>
 
-        <div className="mt-5 flex gap-10">
+        <div className="mt-5 flex flex-col gap-10 md:flex-row">
           <Image
             src="/student.jpg"
             width={150}
@@ -55,7 +55,7 @@ export default function StudentDetailPage({}: Props) {
               Athika Tsary Adzkiya
             </h1>
 
-            <div className="grid w-full grid-cols-3 gap-10">
+            <div className="grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col">
                 <span className="text-sm text-slate-600">
                   Number Induk Siswa
@@ -116,7 +116,7 @@ export default function StudentDetailPage({}: Props) {
           </div>
         </div>
 
-        <div className="mt-5 grid grid-cols-4 gap-5">
+        <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="flex items-center gap-5 rounded-lg bg-gray-100 p-5">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#facc15] text-white">
               <StarIcon size={24} strokeWidth={1.5} />
@@ -145,7 +145,7 @@ export default function StudentDetailPage({}: Props) {
         </div>
       </section>
 
-      <section className="shadow_card mt-10 flex w-full flex-col gap-5 rounded-3xl bg-white p-10">
+      <section className="shadow_card mt-10 flex w-full flex-col gap-5 rounded-3xl bg-white p-5 md:p-10">
         <div className="flex w-full justify-between">
           <div className="flex items-center gap-2">
             <span className="inline-block h-8 w-2 rounded-full bg-emerald-300" />
@@ -156,7 +156,7 @@ export default function StudentDetailPage({}: Props) {
           </div>
         </div>
 
-        <div className="mt-5 grid grid-cols-4 gap-5">
+        <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="flex items-center gap-5 rounded-lg bg-gray-100 p-5">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
               <BackpackIcon size={24} strokeWidth={1.5} />
