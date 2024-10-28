@@ -39,44 +39,44 @@ const sidebarItems = [
   {
     id: 2,
     title: "Murid",
-    href: "/students-management",
+    href: "/students",
     Icon: BackpackIcon,
   },
   {
     id: 3,
     title: "Guru",
-    href: "/teachers-management",
+    href: "/teachers",
     Icon: GraduationCapIcon,
   },
   {
-    id: 3,
+    id: 4,
     title: "Nilai",
-    href: "/grade-management",
+    href: "/grade",
     Icon: StarIcon,
   },
   {
     id: 5,
     title: "Tabungan",
-    href: "/savings-management",
+    href: "/savings",
     Icon: LandmarkIcon,
   },
   {
     id: 6,
     title: "Keuangan",
-    href: "/Revenue-management",
+    href: "/Revenue",
     Icon: TrendingUpIcon,
   },
 
   {
     id: 7,
     title: "Jadwal",
-    href: "/schedule-management",
+    href: "/schedule",
     Icon: CalendarIcon,
   },
   {
     id: 8,
     title: "User",
-    href: "/user-management",
+    href: "/user",
     Icon: UserIcon,
   },
 ];

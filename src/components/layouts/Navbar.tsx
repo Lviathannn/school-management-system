@@ -5,6 +5,7 @@ import { AlignLeft } from "lucide-react";
 import { useSidebarStore } from "@/store/theme-store";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { LogoutDropdown } from "@/features/common";
 
 export function Navbar() {
   const toogleSidebar = useSidebarStore((state) => state.toogleOpen);
@@ -36,15 +37,7 @@ export function Navbar() {
         </div>
       </div>
 
-      <Avatar>
-        <AvatarImage
-          width={10}
-          height={10}
-          src="https://github.com/shadcn.png"
-        />
-
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+      <LogoutDropdown />
     </header>
   );
 }

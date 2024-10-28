@@ -103,3 +103,20 @@ body {
     background-blend-mode: normal;
   }
 }
+
+*::-webkit-scrollbar {
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+}
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5) !important;
+  border-radius: 1.25rem !important;
+  border: transparent !important;
+  -webkit-border-radius: 1.25rem !important;
+  -moz-border-radius: 1.25rem !important;
+  -ms-border-radius: 1.25rem !important;
+  -o-border-radius: 1.25rem !important;
+}
