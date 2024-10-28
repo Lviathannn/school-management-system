@@ -68,7 +68,7 @@ const PaginationPrevious = ({
     aria-label="Go to next page"
     className={cn("flex !aspect-square justify-center", className)}
     size="icon"
-    onClick={props.onClick as any}
+    onClick={props.onClick as React.DOMAttributes<HTMLButtonElement>["onClick"]}
   >
     <ChevronLeft className="h-4 w-4" />
   </Button>
@@ -84,7 +84,7 @@ const PaginationNext = ({
     aria-label="Go to next page"
     className={cn("flex !aspect-square justify-center", className)}
     size="icon"
-    onClick={props.onClick as any}
+    onClick={props.onClick as React.DOMAttributes<HTMLButtonElement>["onClick"]}
   >
     <ChevronRight className="h-4 w-4" />
   </Button>

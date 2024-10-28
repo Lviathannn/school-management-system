@@ -146,20 +146,20 @@ export function Sidebar() {
         <div className="flex flex-col gap-2">
           <TooltipProvider>
             {sidebarItems.map((item) => (
-              <Tooltip key={item.id}>
-                <TooltipTrigger
-                  className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname.includes(item.href) ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
-                >
-                  <Link key={item.id} href={item.href}>
+              <Link key={item.id} href={item.href}>
+                <Tooltip key={item.id}>
+                  <TooltipTrigger
+                    className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname.includes(item.href) ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
+                  >
                     <item.Icon
                       size={24}
                       strokeWidth={pathname.includes(item.href) ? 1.5 : 1.35}
                     />
-                  </Link>
-                </TooltipTrigger>
+                  </TooltipTrigger>
 
-                <TooltipContent side="right">{item.title}</TooltipContent>
-              </Tooltip>
+                  <TooltipContent side="right">{item.title}</TooltipContent>
+                </Tooltip>
+              </Link>
             ))}
           </TooltipProvider>
         </div>
