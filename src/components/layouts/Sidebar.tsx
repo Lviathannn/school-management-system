@@ -5,21 +5,28 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import {
+  AlignLeft,
   BackpackIcon,
+  CalendarIcon,
   GraduationCapIcon,
-  HandCoinsIcon,
   LandmarkIcon,
   LayoutGridIcon,
   MoonIcon,
   School,
+  StarIcon,
   TrendingUpIcon,
+  UserIcon,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type Props = {};
+import { Sheet, SheetContent } from "../ui/sheet";
+import { cn } from "@/lib/utils";
+import { useSidebarStore } from "@/store/theme-store";
+import { Button } from "@/components/ui/button";
 
 const sidebarItems = [
   {
@@ -43,45 +50,116 @@ const sidebarItems = [
   },
   {
     id: 4,
+    title: "Nilai",
+    href: "/grade",
+    Icon: StarIcon,
+  },
+  {
+    id: 5,
     title: "Tabungan",
     href: "/savings",
     Icon: LandmarkIcon,
   },
   {
-    id: 5,
-    title: "Pendapatan & Pengeluaran",
+    id: 6,
+    title: "Keuangan",
     href: "/Revenue",
     Icon: TrendingUpIcon,
   },
+
+  {
+    id: 7,
+    title: "Jadwal",
+    href: "/schedule",
+    Icon: CalendarIcon,
+  },
+  {
+    id: 8,
+    title: "User",
+    href: "/user",
+    Icon: UserIcon,
+  },
 ];
 
-export function Sidebar({}: Props) {
+export function Sidebar() {
   const pathname = usePathname();
+  const isMobile = useIsMobile();
+  const isOpen = useSidebarStore((state) => state.isOpen);
+  const toogleSidebar = useSidebarStore((state) => state.toogleOpen);
+
+  if (isMobile) {
+    return (
+      <Sheet open={isOpen}>
+        <SheetContent className="lg:hidden" side="left">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-2 top-3"
+            onClick={() => toogleSidebar()}
+          >
+            <X size={24} />
+          </Button>
+          <ul className="flex flex-col gap-7">
+            {sidebarItems.map((item) => {
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-5 text-lg ${
+                      pathname.includes(item.href)
+                        ? "font-medium text-primary dark:text-primary"
+                        : "text-slate-700 dark:text-white"
+                    }`}
+                  >
+                    <div
+                      className={cn(
+                        `flex h-11 w-11 items-center justify-center rounded-lg dark:border-white dark:text-white ${
+                          pathname.includes(item.href)
+                            ? "bg-gray-100 font-semibold text-primary dark:text-primary"
+                            : ""
+                        } `,
+                      )}
+                    >
+                      <item.Icon size={18} className={cn("")} />
+                    </div>
+
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* <ThemeButton /> */}
+        </SheetContent>
+      </Sheet>
+    );
+  }
 
   return (
-    <aside className="p-2 py-4 h-full fixed left-0 top-0 bottom-0 flex flex-col justify-between bg-white z-50">
+    <aside className="fixed bottom-0 left-0 top-0 z-50 hidden h-full flex-col justify-between bg-white p-2 py-4 md:flex">
       <div className="flex flex-col gap-5">
-        <div className="p-2 bg-blue-600 rounded-lg">
+        <div className="rounded-lg bg-blue-600 p-2">
           <School color="#ffffff" strokeWidth={1.5} size={24} />
         </div>
 
         <div className="flex flex-col gap-2">
           <TooltipProvider>
             {sidebarItems.map((item) => (
-              <Tooltip key={item.id}>
-                <TooltipTrigger
-                  className={`p-2 hover:bg-gray-100 hover:text-blue-500 rounded-lg ${pathname === item.href ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
-                >
-                  <Link key={item.id} href={item.href}>
+              <Link key={item.id} href={item.href}>
+                <Tooltip key={item.id}>
+                  <TooltipTrigger
+                    className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500 ${pathname.includes(item.href) ? "bg-gray-100 text-blue-500" : "text-gray-600"}`}
+                  >
                     <item.Icon
                       size={24}
-                      strokeWidth={pathname === item.href ? 1.5 : 1.35}
+                      strokeWidth={pathname.includes(item.href) ? 1.5 : 1.35}
                     />
-                  </Link>
-                </TooltipTrigger>
+                  </TooltipTrigger>
 
-                <TooltipContent side="right">{item.title}</TooltipContent>
-              </Tooltip>
+                  <TooltipContent side="right">{item.title}</TooltipContent>
+                </Tooltip>
+              </Link>
             ))}
           </TooltipProvider>
         </div>
@@ -90,7 +168,7 @@ export function Sidebar({}: Props) {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger
-            className={`p-2 hover:bg-gray-100 hover:text-blue-500 rounded-lg`}
+            className={`rounded-lg p-2 hover:bg-gray-100 hover:text-blue-500`}
           >
             <MoonIcon
               size={24}

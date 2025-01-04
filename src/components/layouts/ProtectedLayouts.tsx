@@ -1,4 +1,3 @@
-import React from "react";
 import { Sidebar } from "./Sidebar";
 import { Navbar } from "./Navbar";
 
@@ -8,7 +7,7 @@ type Props = {
 
 export function ProtectedLayouts({ children }: Props) {
   return (
-    <main className="bg-[#FAFBFC]">
+    <main>
       <Navbar />
       <Sidebar />
       {children}

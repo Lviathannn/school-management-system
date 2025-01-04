@@ -18,7 +18,7 @@ function Calendar({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn("border-none w-full flex justify-center", className)}
+      className={cn("flex w-full justify-center border-none", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
@@ -61,7 +61,7 @@ function Calendar({
           const day = format(props.date, "d");
 
           return (
-            <span className="flex flex-col justify-center items-center text-sm font-medium">
+            <span className="flex flex-col items-center justify-center text-sm font-medium">
               {day}
             </span>
           );

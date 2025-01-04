@@ -1,16 +1,7 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -43,7 +34,10 @@ const chartConfig = {
 
 export function SavingChart() {
   return (
-    <ChartContainer config={chartConfig} className="max-h-[200px]  w-full">
+    <ChartContainer
+      config={chartConfig}
+      className="max-h-[300px] min-h-[300px] w-full"
+    >
       <LineChart
         accessibilityLayer
         data={chartData}
@@ -69,9 +63,9 @@ export function SavingChart() {
               formatter={(value, name, item) => {
                 return (
                   <div className="flex gap-3">
-                    <div className="flex gap-2 items-center">
+                    <div className="flex items-center gap-2">
                       <span
-                        className="inline-block w-2 h-2 rounded-[2px]"
+                        className="inline-block h-2 w-2 rounded-[2px]"
                         style={{ backgroundColor: item.color }}
                       />
 

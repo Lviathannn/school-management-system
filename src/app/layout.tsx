@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ProtectedLayouts } from "@/components/layouts";
-
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800"],
   fallback: ["sans-serif"],
@@ -22,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} antialiased max-w-[100vw] overflow-x-hidden`}
+        className={`${poppins.className} max-w-[100vw] overflow-x-hidden antialiased`}
       >
-        <ProtectedLayouts>{children}</ProtectedLayouts>
+        {children}
       </body>
     </html>
   );
