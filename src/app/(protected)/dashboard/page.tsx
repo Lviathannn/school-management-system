@@ -16,7 +16,7 @@ import {
   UserRound,
 } from "lucide-react";
 
-export default function Home() {
+export default function DashboardPage() {
   return (
     <main className="grid min-h-screen grid-cols-4 grid-rows-2 gap-5 bg-gray-50 px-4 pb-10 pt-[88px] md:px-10 md:pl-[86px]">
       <section className="col-span-4 row-span-2 flex flex-col gap-5 2xl:col-span-3">
@@ -46,7 +46,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shadow_card col-span-4 row-span-2 flex h-full w-full flex-col items-center justify-center gap-10 rounded-2xl bg-white p-5 md:flex-row 2xl:col-span-1 2xl:flex-col 2xl:justify-start">
+      <section className="shadow_card col-span-2 row-span-1 flex h-full w-full flex-col items-center justify-center gap-10 rounded-2xl bg-white p-5 md:flex-row 2xl:col-span-1 2xl:flex-col 2xl:justify-start">
         <CalendarDemo />
 
         <Schedule />
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="col-span-4 flex flex-col gap-5 2xl:col-span-2">
+      <section className="col-span-2 flex flex-col gap-5 2xl:col-span-2">
         <div className="shadow_card flex h-full w-full flex-col justify-between space-y-10 rounded-2xl bg-white p-5">
           <Header
             title="Tabungan"
@@ -95,7 +95,7 @@ export default function Home() {
             color="#f97316"
           />
 
-          <div className="max-h-[300px]">
+          <div className="max-h-[400px]">
             <SavingChart />
           </div>
         </div>

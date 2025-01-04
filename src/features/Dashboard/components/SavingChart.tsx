@@ -36,7 +36,7 @@ export function SavingChart() {
   return (
     <ChartContainer
       config={chartConfig}
-      className="max-h-[200px] min-h-[200px] w-full"
+      className="max-h-[300px] min-h-[300px] w-full"
     >
       <LineChart
         accessibilityLayer
